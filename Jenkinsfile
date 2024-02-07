@@ -3,12 +3,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo'Sedang build'
+                echo 'building...'
+                sh '''
+                pip install -r requirements.txt
+                '''
             }
         }
         stage('Tests') {
             steps {
                 echo'Testing'
+                sh '''
+                    nohup python app.py &
+                '''
             }
         }
         stage('Release') {
@@ -25,6 +31,14 @@ pipeline {
             steps {
                 echo'Monitoring'
             }
+        }
+    }
+    post {
+        success {
+            echo'sukses'
+        }
+        failure {
+            echo'gagal'
         }
     }
 }
