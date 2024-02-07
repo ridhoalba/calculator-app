@@ -25,7 +25,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo'Deploy to Production'
-                echoadafwatg
             }
         }
         stage('Monitor') {
