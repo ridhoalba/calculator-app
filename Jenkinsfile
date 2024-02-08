@@ -5,17 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'building...'
-                sh '''
-                docker build -t calculator:1.0 .
-                docker create --name calculator -p 8081:80 calculator:1.0
-                '''
             }
         }
         stage('Tests') {
             steps {
                 echo 'Testing'
                 sh '''
-                docker start calculator
+                nogup python3 app.py &
                 '''
             }
         }

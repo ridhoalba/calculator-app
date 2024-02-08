@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Salin file requirements.txt ke dalam container
 COPY . /app
-
+RUN apt update
 # Install dependencies
 RUN pip install -r requirements.txt
 
