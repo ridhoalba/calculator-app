@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 EXPOSE 80
 
 # Perintah default yang dijalankan saat container dijalankan
-RUN python3 app.py
+RUN nohup python3 app.py &
