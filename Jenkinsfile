@@ -7,7 +7,7 @@ pipeline {
                 echo 'building...'
                 sh '''
                 docker build -t calculator:1.0 .
-                docker create --name calculator -p 8081:5000 calculator:1.0
+                docker create --name calculator -p 8081:80 calculator:1.0
                 '''
             }
         }
