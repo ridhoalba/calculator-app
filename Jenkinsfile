@@ -1,44 +1,46 @@
 pipeline {
     agent any
+    
     stages {
         stage('Build') {
             steps {
                 echo 'building...'
                 sh '''
-                pip install -r requirements.txt
+                docker build -t calculator:1.0
+                docker create --nama calculator -p 8081:5000 calculator:1.0
                 '''
             }
         }
         stage('Tests') {
             steps {
-                echo'Testing'
+                echo 'Testing'
                 sh '''
-                    nohup python3 app.py &
+                docker start calculator
                 '''
             }
         }
         stage('Release') {
             steps {
-                echo'Release'
+                echo 'Release'
             }
         }
         stage('Deploy') {
             steps {
-                echo'Deploy to Production'
+                echo 'Deploy to Production'
             }
         }
         stage('Monitor') {
             steps {
-                echo'Monitoring'
+                echo 'Monitoring'
             }
         }
     }
     post {
         success {
-            echo'sukses'
+            echo 'Sukses'
         }
         failure {
-            echo'gagal'
+            echo 'Gagal'
         }
     }
 }
