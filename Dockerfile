@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # Set working directory di dalam container
-CMD ["mkdir", "/app"]
+RUN mkdir /app
 WORKDIR /app
 
 # Salin file requirements.txt ke dalam container
@@ -15,4 +15,4 @@ RUN pip install -r requirements.txt
 EXPOSE 80
 
 # Perintah default yang dijalankan saat container dijalankan
-CMD ["python3", "app.py"]
+RUN python3 app.py
