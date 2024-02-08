@@ -12,7 +12,7 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Expose port yang digunakan oleh aplikasi
-EXPOSE 5000
+EXPOSE 80
 
 # Perintah default yang dijalankan saat container dijalankan
 CMD ["python3", "app.py"]
