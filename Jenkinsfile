@@ -12,8 +12,10 @@ pipeline {
                 echo 'Testing'
                 sh '''
                 pip install -r requirements.txt
-                nohup gunicorn -w 4 -b 0.0.0.0:80 app:app > /dev/null 2>&1 &
+                gunicorn -w 4 -b 0.0.0.0:80 app:app
                 '''
+                // Menunggu selama 10 detik sebelum melanjutkan ke tahap berikutnya
+                sleep(time: 10, unit: 'SECONDS')
             }
         }
         stage('Release') {
