@@ -12,7 +12,7 @@ pipeline {
                 echo 'Testing'
                 sh '''
                 pip install -r requirements.txt
-                gunicorn -w 4 -b 0.0.0.0:80 app:app
+                nohup gunicorn -w 4 -b 0.0.0.0:80 app:app > /dev/null 2>&1 &
                 '''
             }
         }
