@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Testing'
                 sh '''
-                nohup python3 app.py & 
+                gunicorn -w 4 -b 0.0.0.0:80 app:app
                 '''
             }
         }
