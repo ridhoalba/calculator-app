@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'building...'
                 sh '''
-                docker build -t calculator:1.0
+                docker build -t calculator:1.0 .
                 docker create --nama calculator -p 8081:5000 calculator:1.0
                 '''
             }
