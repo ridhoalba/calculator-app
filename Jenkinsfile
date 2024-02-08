@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Testing'
                 sh '''
-                nogup python3 app.py &
+                nohup python3 app.py &
                 '''
             }
         }
