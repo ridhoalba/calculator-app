@@ -11,6 +11,7 @@ pipeline {
             steps {
                 echo 'Testing'
                 sh '''
+                pip install -r requirements.txt
                 gunicorn -w 4 -b 0.0.0.0:80 app:app
                 '''
             }
